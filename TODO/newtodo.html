@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEWTODO</title>
+</head>
+
+<body bgcolor="skyblue">
+  <h1 style="color: green; font-family: sans-serif; font-weight: 900;">T0D0~L!ST</h1>
+
+  <p>
+
+    <input type="text" id="demo" />
+
+    <button id="btn" onclick="AddItem()">➕</button>
+
+    <button id="btn" onclick="showList('showList')">All</button>
+
+    <button id="btn" onclick="showList('activeItem')">Active</button>
+
+    <button id="btn" onclick="showList('completeItem')">Completed</button>
+  </p>
+
+  <ul id="todolisting"></ul>
+
+  <script>
+    var list = [];
+    var demo = document.getElementById("demo");
+    var todolisting = document.getElementById("todolisting");
+    var isActive = false;
+    var display = "showList";
+
+    function AddItem() {
+
+      var listItem = document.createElement("li");
+      const value = document.getElementById("demo").value;
+
+      if (value !== "") {
+        const obj = {
+          _id: Math.random().toString().substr(6, 1),
+          Name: value,
+          status: false
+        };
+        list.push(obj);
+
+      } else {
+        alert("input field is required!");
+      }
+      showList();
+      document.getElementById("demo").value = "";
+    }
+    function showList(displayType) {
+
+      if (displayType !== undefined) {
+        display = displayType
+      }
+      if (display === "showList") {
+        isActive = false;
+        iscomplete = false;
+        let dataView = "";
+        list.map((item) => {
+          console.log("item", item);
+          if (item.status === false) {
+            dataView += `<li>
+                <input type="checkbox" value="checked" class="close" unchecked="true" onclick='completedItem("${item._id}")'></input><span>${item.Name}</span><button style="margin-left:100px" onclick='deleteItem("${item._id}")'>❌</button><button style="margin-left:100px" onclick='editItem("${item._id}")'>edit</button>
+                </li>`;
+          } else {
+            dataView += `<li>
+                  <input type="checkbox" value="checked"  class="close" checked="true" onclick='completedItem("${item._id}")'></input><span style="text-decoration:line-through">${item.Name}</span><button style="margin-left:100px" onclick='deleteItem("${item._id}")'>❌</button><button style="margin-left:100px" onclick='editItem("${item._id}")'>edit</button>
+                  </li>`;
+          }
+        });
+        todolisting.innerHTML = dataView;
+      } else if (display === "activeItem") {
+        let ActiveItem = list.filter((item) => item.status == false);
+
+        isActive = true;
+        iscomplete = false;
+        if (ActiveItem) {
+          let active = "";
+          ActiveItem.map((item) => {
+            active += `<li>
+                <input type="checkbox" value="checked" unchecked="true" onclick="completedItem('${item._id}')"></input>
+                <span style:"text-align:center">${item.Name}</span><button style="margin-left:100px" onclick='editactiveItem("${item._id}")'>edit</button> <input type="button" value="x" onclick="activedel(${item._id})">
+                  </li>`;
+          });
+          console.log(active);
+          document.getElementById("todolisting").innerHTML = active;
+        }
+      } else if (display === "completeItem") {
+        isActive = false;
+        iscomplete = true;
+        let completebtn = list.filter((item) => item.status);
+        if (completebtn) {
+          let completetable = "";
+          completebtn.map((item) => {
+            completetable += `<li>
+                  <input type="checkbox" value="checked" checked="true" onclick="completedItem('${item._id}')"></input>
+                  <span style="text-decoration:line-through">${item.Name}</span><button style="margin-left:100px" onclick='editCompleteItem("${item._id}")'>edit</button><input type="button" value="x" style="margin-left:100px"onclick="completedel(${item._id})">
+                  </li>`;
+          });
+          console.log(completetable);
+          document.getElementById("todolisting").innerHTML = completetable;
+        }
+      }
+    }
+
+    function deleteItem(id) {
+      deleteFunction(id)
+      showList();
+    }
+
+    function deleteFunction(id) {
+      let newArr = list.filter((item) => item._id !== id.toString());
+      console.log(list, newArr);
+      list = newArr;
+    }
+    function editItem(id) {
+      editFunction(id);
+      showList();
+    }
+    function editFunction(id) {
+      const index = list.findIndex((item) => item._id === id);
+      const data = list.find((item) => item._id === id);
+      let newValue = prompt("Insert a new Value", list[index].Name);
+      if (newValue != null) {
+        list[index] = { ...data, Name: newValue };
+      }
+    }
+    function editactiveItem(id) {
+      editFunction(id)
+      showList();
+    }
+    function editCompleteItem(id) {
+      editFunction(id)
+      showList();
+    }
+    function completedItem(_id) {
+
+      list.map((item) => {
+        if (item._id === _id) {
+          item.status = !item.status;
+          item;
+        }
+        showList();
+      });
+      console.log("list", list);
+    }
+    function activedel(_id) {
+
+      console.log("_id", _id);
+      deleteItem(_id);
+
+      ActiveItem();
+    }
+
+    function completedel(_id) {
+      deleteItem(_id);
+      completebtn();
+    }
+  </script>
+</body>
+
+</html>

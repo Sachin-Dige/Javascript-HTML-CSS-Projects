@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Page</title>     
+</head>
+<script>
+function validateForm() {
+  var firstname= document.getElementById("fname");
+  var lastname= document.getElementById("lname");
+  var email= document.getElementById("email");
+  var password= document.getElementById("pass");
+  var confirmpassword= document.getElementById("cpass");
+  var phoneno= document.getElementById("phone");
+  var regx=/^[7-9]\d{9}$/;
+  
+  if ( firstname.value.trim()==""){
+  	alert("First Name must be filled out");
+  	firstname.style.border="solid 3px red";
+  	document.getElementById("lbfname").innreHTML="Invalid";
+  	document.getElementById("lbfname").style.visibility="visible";
+  	document.getElementById("lbfname").style.color="red";
+  	return false;
+  }	
+  if ( lastname.value.trim()==""){
+  	alert("Last Name must be filled out");
+  	lastname.style.border="solid 3px red";
+  	document.getElementById("lblname").style.visibility="visible";
+  	return false;
+  }
+  
+   if (email.value.trim()=="") {
+  	alert("Email must be filled out");
+  	email.style.border="solid 3px red";
+  	document.getElementById("lbemail").style.visibility="visible";
+  	return false;
+  }
+  if (password.trim()=="") {
+  	alert("Enter Your Password");
+  	return false;
+  }
+  if (password.trim().length<5) {
+  	alert("Password is too short");
+  	password.style.border="solid 3px red";
+  	return false;
+  }
+  if (confirmpassword.trim()=="") {
+  	alert("Confirm Your Password");
+  	return false;
+  }
+  if (confirmpassword=password) {
+  	alert("Confirm Password is wrong");
+  	confirmpassword.style.border="solid 3px red";
+  	document.getElementById("lbcpass").style.visibility="visible";
+  	return false;
+  }
+  if (phoneno.value.trim()=="") {
+  	alert("Enter Your Phone Number");
+  	return false;
+  }
+  else if (phoneno.value.match(regx)) {
+  	alert("Yes it's a valid Phone Number");
+
+  	return true;
+  }
+  else {
+  	alert("Not a valid Phone Number");
+  	return false;
+  }	
+ 
+}
+</script>
+
+<body bgcolor="pink">
+
+<center><u><h1>Register Form</h1></u>
+<form action="mymessage.html" onsubmit="return validateForm()" method="post">
+<b>First Name:</b><input type="text" id="fname" placeholder="Enter your First Name"/>
+ <label id="lbfname" style="color: red; visibility: hidden">Invalid</label><br><br>
+  <b>Last Name:</b><input type="text" id="lname" placeholder="Enter your Last Name"/>
+  <label id="lblname" style="color: red; visibility: hidden">Invalid</label><br><br>
+  <b>Email:</b><input type="email" id="email" placeholder="Enter your Email"/>
+  <label id="lbemail" style="color: red; visibility: hidden">Invalid</label><br><br>
+  <b>Password:</b><input type="password" id="pass" placeholder="Enter your Password"/><br><br>
+  <b>Confirm Password:</b><input type="password" id="cpass" placeholder="Confirm your Password" />
+  <label id="lbcpass" style="color: red; visibility: hidden">Invalid</label><br><br>
+  <b>Phone Number:</b><input type="text" id="phone" placeholder="Enter your Phone Number" />
+  <label id="lbphone" style="color: red; visibility: hidden">Invalid</label><br><br>
+  <button type="submit"><b>Submit</b></button>
+</center>
+</form>	
+</body>
+</html>

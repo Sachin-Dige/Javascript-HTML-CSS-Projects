@@ -1,0 +1,58 @@
+.btn{
+    box-shadow: 0 0rem 4rem 1rem rgb(243, 5, 5);
+}
+
+.btn.click{
+    left: 16rem;
+}
+
+.sidebar{
+    position: fixed;
+    width: 15rem;
+    height:100%;
+}
+
+nav ul ul li a{
+    font-size: 1.27rem;
+    padding-left: 5rem;
+}
+
+.main-div{
+    background: black;
+    width: 77rem;
+}
+
+.music-container{
+    padding: 1.4rem;
+    box-shadow: 0 0.4rem 3rem 2rem rgb(64, 234, 247);
+    height: 55rem;
+    margin-left: -32rem;
+    margin-top: 6rem;
+    width: 30rem;
+}
+
+.main-div h1{
+    font-size: 6.5rem;
+    margin-left: 22rem;
+    font-weight: 500;
+    letter-spacing: 1.5rem;
+    color: white;
+    background: linear-gradient(rgb(7, 7, 7)45%,rgb(248, 107, 236)110%);
+}
+
+.main-div p{
+    font-size: 1.35rem;
+    letter-spacing: 0.40rem;
+    font-family: Agency FB;
+    word-spacing: 0.6rem;
+    font-weight: 600;
+    color: #4709f1;
+    background: white;
+    margin: -1.8rem 32.5rem 0rem 0rem;
+}
+
+.main-div p span{
+    font-family: forte;
+    color: #111;
+    font-weight: lighter;
+}

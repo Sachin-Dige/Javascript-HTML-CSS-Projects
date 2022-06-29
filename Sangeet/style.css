@@ -1,0 +1,322 @@
+*,
+*::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root{
+    --primary-color: linear-gradient(rgba(255, 255, 255, 0.8) 20%,rgba(241, 68, 213, 0.582)40%);
+    --secondary-color: linear-gradient(hsl(0, 0%, 100%)40%,rgba(171, 250, 24, 0.795)100%);
+}
+
+.btn{
+    position: absolute;
+    top: 4rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    left: 2.5rem;
+    color: #1b1b1b;
+    text-align: center;
+    background: crimson;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+}
+
+.btn.click{
+    left: 26rem;
+}
+.btn span{
+    color: white;
+    font-size: 2.8rem;
+    line-height: 4.5rem;
+}
+
+.btn.click span:before{
+    content: '\f00d';
+}
+
+html{
+    font-size: 62.5%;
+    font-family: cursive;
+}
+
+.sidebar{
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  left: -250px;
+  background: #1b1b1b;
+  transition: left 0.4s ease;
+}
+
+.sidebar.show{
+    left: 0px;
+}
+
+.sidebar .text {
+    color: white;
+    font-size: 3.1rem;
+    font-weight: 600;
+    line-height: 6.5rem;
+    text-align: center;
+    background: #1e1e1e;
+    font-family: fantasy;
+    color: red;
+    letter-spacing: 0.1rem;
+}
+
+.sidebar .text span{
+    font-size: 3.rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    font-family: forte;
+    color: white;
+}
+
+nav ul{
+    background: #1b1b1b;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+nav ul li{
+    line-height: 6rem;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+nav ul li:last-child{
+    line-height: 60px;
+    border-bottom: 2px solid rgba(255,255,255,0.05);
+}
+
+nav ul li a{
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    padding-left: 4rem;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+nav ul li.active a{
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color: cyan;
+}
+
+nav ul ul{
+    position: static;
+    display: none;
+}
+
+nav ul .feat-show.show{
+    display: block;
+}
+
+nav ul .serv-show.show1{
+    display: block;
+}
+
+nav ul ul li{
+    line-height: 4.2rem;
+    border-bottom: none;
+}
+
+nav ul ul li a{
+    font-size: 1.7rem;
+    color: #e6e6e6;
+    padding-left: 8rem;
+}
+
+nav ul li.active ul li a{
+    color:#e6e6e6;
+    background: #1b1b1b;
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover{
+    color: cyan!important;
+    background: #1e1e1e!important;
+}
+
+nav ul li a span{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 2.2rem;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate{
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+
+/*******home screen section******/
+
+.main-div{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--primary-color);
+}
+
+.main-div h1{
+    font-size: 8.5rem;
+    margin-right: 55rem;
+    font-weight: 600;
+    letter-spacing: 0.4rem;
+    font-family: serif;
+    background: var(--secondary-color);
+}
+
+.main-div h1 span{
+    font-size: 8rem;
+    font-weight: 600;
+    letter-spacing: 0.4rem;
+    font-family: forte;
+}
+
+.main-div p{
+    margin-right: 55rem;
+    font-size: 2rem;
+    letter-spacing: 0.35rem;
+    font-family: Agency FB;
+    word-spacing: 0.6rem;
+    margin-top: -2.2rem;
+    font-weight: 600;
+    color: #4709f1;
+    background: rgb(255, 255, 255);
+}
+
+.main-div p span{
+    font-family: forte;
+    color: #111;
+    font-weight: lighter;
+}
+
+.dark-theme{
+    --primary-color: #000106;
+    --secondary-color: linear-gradient(hsl(0, 0%, 100%)40%,rgba(171, 250, 24, 0.795)100%);
+}
+
+.music-container{
+    width: 35rem;
+    height: 55rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: 0 1.2rem 3rem 2rem rgba(44, 7, 253, 0.986);
+    padding: 3rem;
+    margin-left: 60rem;
+    margin-bottom: 59rem;
+    text-align: center;
+}
+
+.music-container #title{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+    color: #161616;
+    margin: 2rem 0 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+}
+
+.music-container #artist{
+    color: #c0bdbd;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+}
+
+.img-container{
+    width: 25rem;
+    height: 25rem;
+    margin: auto;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 1.2rem 3rem 0.5rem rgba(0,0,0,0.4);
+
+}
+
+.music-controls{
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.music-controls .fas{
+    color: #111111;
+    font-size: 2rem;
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3rem 0.5rem rgba(0, 0, 0, 0.4));
+}
+
+.music-container .main-button{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #111;
+    color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.music-controls .fa-play:hover{
+    background-color: #f6f6f6;
+    color: #111;
+    box-shadow: 0rem 0rem 2rem 0.9rem rgba(233, 6, 25, 0.979);
+}
+
+.music-controls .fa-forward:hover{
+    background-color: #f6f6f6;
+    color: #111;
+    box-shadow: 0rem 0rem 2rem 0.9rem rgba(76, 253, 6, 0.979);
+
+}.music-controls .fa-backward:hover{
+    background-color: #f6f6f6;
+    color: #111;
+    box-shadow: 0rem 0rem 2rem 0.9rem rgba(74, 250, 4, 0.979);
+}
+
+
+
+
+
+/* ROTATION animation in music disc*/
+.anime{
+    animation: rotateDisc 4s linear infinite;
+}
+
+@keyframes rotateDisc{
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}

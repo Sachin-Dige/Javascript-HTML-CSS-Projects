@@ -1,0 +1,266 @@
+/*css reset*/
+*{
+
+    margin:0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+
+}
+
+
+/* Navigation section */
+#navbar{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+}
+
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    
+}
+
+#logo img{
+    height: 89px;
+    margin: 15px  34px;
+}
+#navbar ul{
+    display: flex
+}
+
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a{
+    color: white;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+/* Home section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    justify-content: center;
+    align-items: center;
+    height: 664px;
+}
+#home{
+    width: 73.6%;
+    height: 100%;
+    background:url('img/bk1.png');
+    position: static;
+}
+
+/*
+#home::before{
+    content: "";
+    background: url('../img/bg.jpg') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -2;
+    opacity: 0.89;
+}
+*/
+#home h1{
+    color: black;
+    text-align: center;
+    background-color: rgba(219, 218, 218, 0.644);
+    font-family: cursive;
+    font-size: 5.5rem;
+}
+
+#home h2{
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: rgba(219, 218, 218, 0.644);
+    font-family: monospace;
+    margin-bottom: 80px;
+    color: green;
+    word-spacing: 10px;
+    font-weight: bold;
+    padding: 0px 4px;
+    
+}
+#home p{
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: rgba(219, 218, 218, 0.644);
+    font-family: cursive;
+}
+
+/* Service Section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+
+#services .box{
+    border: 2px solid brown;
+    padding: 34px;
+    margin: 25px 45px;
+    border-radius: 28px;
+    background-color: rgba(235, 231, 231, 0.644);
+
+}
+
+#services .box img{
+    height: 160px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+
+}
+
+#services .box img:hover{
+    transform: scale(1.35);
+}
+
+/* Client section */
+#client-section{
+    height: 344px;
+
+}
+
+#client-section{
+    width: 100%;
+    height: 100%;
+    background:url('img/bk2.png');
+    position: static;
+}
+
+/*
+#client-section::before{
+    content: "";
+    position: absolute;
+    background:url('../img/bg2.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+    opacity: 0.4;
+}
+*/
+
+#clients{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-item{
+    padding: 34px;
+}
+
+#clients img{
+    height: 124px;
+}
+
+/* Contact section */
+#contact{
+    position: relative;
+}
+
+#contact::before{
+    content: "";
+    position: absolute;
+    background: linear-gradient(rgba(199, 16, 16, 0.993) -5%, rgba(255,255,255,0.1)), cyan;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+
+#contact-box input,#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 9px;
+    font-size: 1.1rem;
+}
+
+#contact-box form{
+    width: 40%;
+}
+
+#contact-box label{
+    font-size: 1.299rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 5 ;
+}
+
+/* Footer section */
+footer{
+    background: black;
+    color: white;
+    padding: 9px 20px;
+}
+
+
+
+
+/* Utility Classes */
+.h-primary{
+    font-size:3.6rem;
+    padding: 12px;
+}
+
+.h-secondary{
+    font-size:2rem;
+    padding: 12px;
+}
+
+.btn{
+    padding: 6px 20px;
+    border: 3.5px solid white;
+    background-color: brown;
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 40px;
+
+}
+
+.btn:hover{
+    color: crimson;
+    background-color: white;
+    border-color: red;
+}
+
+.center{
+    text-align: center;
+}

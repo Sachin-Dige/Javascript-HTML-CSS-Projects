@@ -1,0 +1,126 @@
+<html>
+
+
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact-style.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                CODO<span>PEDI@</span>
+            </div>
+            <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</b>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div class="container">
+
+        <h1> <i1 class="fa fa-star"> </i1> OUR TEAM MEMBERS <i1 class="fa fa-star"></i1></h1>
+       
+        <div class="view-box">
+            <div id="test">
+                
+                <div class="user">
+                    <img src="img/team-1.jpg" width="200" height="150">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum ex mollitia alias, totam consequuntur maiores eligendi reiciendis similique inventore quis, accusantium.</p>
+                    <h3>Nick lawerence</h3>
+                </div>
+
+                <div class="user space">
+                    <img src="img/team-2.jpg" width="200" height="150">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum ex mollitia alias, totam consequuntur maiores eligendi reiciendis similique inventore quis, accusantium.</p>
+                    <h3>Olie vessa</h3>
+                </div>
+
+                <div class="user">
+                    <img src="img/team-3.jpg" width="200" height="150">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum ex mollitia alias, totam consequuntur maiores eligendi reiciendis similique inventore quis, accusantium.</p>
+                    <h3>Relie kressi</h3>
+                </div>
+
+           <!--\     <div class="user space">
+                    <img src="img/team-4.jpg" width="200" height="150">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum ex mollitia alias, totam consequuntur maiores eligendi reiciendis similique inventore quis, accusantium in asperiores.</p>
+                    <h3>Sam watson</h3>
+                </div>-->
+            </div>
+
+            <div class="controls">
+                <span id="control1"></span>
+                <span id="control2"class="active"></span>
+                <span id="control3"></span>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+<script>
+    var test = document.getElementById('test');
+    var control1 = document.getElementById('control1');
+    var control2 = document.getElementById('control2');
+    var control3 = document.getElementById('control3');
+
+    control1.onclick=function(){
+        test.style.transform = "translate(870px)";
+        control1.classList.add("active");
+        control2.classList.remove("active");
+        control3.classList.remove("active");
+   }
+
+   control2.onclick=function(){
+        test.style.transform = "translate(0px)";
+        control1.classList.remove("active");
+        control2.classList.add("active");
+        control3.classList.remove("active");
+   }
+
+   control3.onclick=function(){
+        test.style.transform = "translate(-870px)";
+        control1.classList.remove("active");
+        control2.classList.remove("active");
+        control3.classList.add("active");
+   }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

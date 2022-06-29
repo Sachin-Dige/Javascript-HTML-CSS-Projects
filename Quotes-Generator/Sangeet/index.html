@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SANGeeT-where the music met</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1070px)" href="phone.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+
+<body>
+
+    <div class="btn">
+        <span class="fas fa-music"></span>
+    </div>
+    <nav class="sidebar">
+        <div class="text">SANG<span>ee</span>T</div>
+        
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li>
+                <a href="#" class="feat-btn">features     <span class="fas fa-caret-down first"></span></a>
+                <ul class="feat-show">
+                    <li><a id="icon" href="#">Darkmode </a></li>
+                    <li><a href="#">Background-Play</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="serv-btn">Services <span class="fas fa-caret-down second"></span></a>
+                <ul class="serv-show">
+                    <li><a href="#">Free</a></li>
+                    <li><a href="#">Premium</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Ratings</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+
+<!--INCOMPLETE TASK-->
+        <nav class="bottom">
+           <a href=""> <i class="fa fa-facebook"></i></a>
+            <i class="fa fa-whatsapp"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+        </nav>
+    </nav>     
+
+    <div class="main-div"> 
+        <h1>SANG<span>ee</span>T</h1>
+        <p>आओ SANG G<span>ee</span>T सुने<p>
+        <div class="music-container">
+            <h2 id="title">kya baat hai....</h2>
+            <h3 id="artist">Hardy Sandhu</h3>
+
+            <div class="img-container">
+             <img src="img/1.jpg" alt="">    
+            </div>
+            <audio src="music/BESABRIYAAN Full Song Audio _ M. S. DHONI - THE UNTOLD STORY _ Sushant Singh Rajput _ Latest Songs(MP3_160K).mp3"></audio>
+
+<!-- controls -->
+            <div class="music-controls">
+                <i class="fas fa-backward" id="prev" title="Previous"></i>
+                <i class="fas fa-play main-button" id="play" title="Play"></i>
+                <i class="fas fa-forward" id="next" title="Next"></i>
+            </div>
+        </div>
+    </div>
+
+<!-- JAVASCRIPT SECTION -->
+    <script>
+        const music = document.querySelector("audio");
+        const img = document.querySelector("img");
+        const play = document.getElementById("play");
+        const artist = document.getElementById("artist");
+        const title = document.getElementById("title");
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+
+        const songs =[
+            {
+                name: "1",
+                title: "Perl",
+                artist: "Hardy Sandhu",
+            },
+            {
+                name: "2",
+                title: "React",
+                artist: "Hardy",
+            },
+            {
+                name: "3",
+                title: "Vue",
+                artist: " Sandhu",
+            },
+        ];
+
+        let isPlaying = false;
+        
+// for play function
+        const playMusic = () => {
+            isPlaying = true;
+            music.play();
+            play.classList.replace("fa-play", "fa-pause");
+            img.classList.add("anime");
+        };
+
+// for pause function
+        const pauseMusic = () => {
+            isPlaying = false;
+            music.pause();
+            play.classList.replace("fa-pause", "fa-play");
+            img.classList.remove("anime");
+        };
+
+        play.addEventListener("click", () => {
+            isPlaying ? pauseMusic() : playMusic()
+         });
+  /*          if  (isPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+*/
+// changing music process data
+        const loadSong = (songs) => {
+            title.textContent = songs.title;
+            artist.textContent = songs.artist;
+            music.src = "music/" + songs.name + ".mp3";
+            img.src = "img/" + songs.name + ".jpg";
+        };
+
+//  loadSong(songs[1]);
+        songIndex = 0;
+
+        const nextSong = () => {
+            songIndex = (songIndex + 1) % songs.length;
+ // 2+1%3 = 3%3 = 0
+            loadSong(songs[songIndex]);  
+            playMusic();   
+        };
+
+        const prevSong = () => {
+            songIndex = (songIndex - 1 + songs.length) % songs.length;
+// 2-1+3%3 = 4%3 = 1
+            loadSong(songs[songIndex]); 
+            playMusic();    
+        };
+
+        next.addEventListener("click", nextSong);
+        prev.addEventListener("click", prevSong);
+
+// SIDE MENU JS SECTION START..........................
+        $('.btn').click(function(){
+            $(this).toggleClass("click");
+            $('.sidebar').toggleClass("show");
+
+        });
+
+        $('.feat-btn').click(function(){
+            $('nav ul .feat-show').toggleClass("show");
+            $('nav ul .first').toggleClass("rotate");
+        });
+
+        $('.serv-btn').click(function(){
+            $('nav ul .serv-show').toggleClass("show1");
+            $('nav ul .second').toggleClass("rotate");
+        });
+
+        $('nav ul li').click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+// DARK MODE ENABLE JS
+        var icon = document.getElementById("icon");
+
+        icon.onclick = function(){
+            document.body.classList.toggle("dark-theme");
+        }
+    </script>
+</body>
+
+</html>

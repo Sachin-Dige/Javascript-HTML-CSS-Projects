@@ -1,0 +1,180 @@
+*{padding: 0; margin: 0; box-sizing: border-box; font-family: sans-serif;
+}
+body{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+nav{
+    width: 100%;
+    height: 55px;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 80px; 
+    position: fixed;
+    top:0;  
+    z-index: 1;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    
+}
+
+.logo{
+    font-family: cursive;
+    font-size: 2.5em;
+}
+
+.logo span{
+    color: #e74c3c;
+}
+
+.menu a{
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.menu a:nth-child(4){
+    color: #f70707;
+    font-size: 1.6em;
+}
+
+.menu a:hover {
+    color: #f70707;
+}
+
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background: #e8ecff;
+
+}
+
+.container h1{
+    color: mediumblue;
+    text-align: center; 
+    font-size: 2.8em;
+    background-color: linen;
+    font-family: fantasy;
+    line-height: 1.5em;
+    padding: 50px 0;
+}
+
+.view-box{
+    width: 850px;
+    height: 500px;
+    border-radius: 220px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#test{
+    display: flex;
+    transition: 0.5s;
+}
+
+.user{
+    width: 800px;
+    text-align: center;
+    padding: 20px 70px;
+    box-sizing: border-box;
+    background: #321764;
+    border-radius: 200px;
+    box-shadow: 0 10px 20px -5px #00000061;
+    position: relative;
+}
+
+.space{
+    margin: 0 40px;
+}
+
+.user img{
+    width: 140px;
+    border-radius: 50%;
+    border: 10px solid #e8ecff;
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+ .user p{
+     font-size: 22px;
+     color: #cbb4f5;
+     line-height: 32px;
+     margin: 60px 0 30px;
+ }
+
+ .user p::before{
+     content: '\201C';
+     font-size: 120px;
+     height: 0;
+     display: inline-block;
+     vertical-align: -57;
+     margin-right: 10px;
+ }
+
+ .user p::after{
+    content: '\201D';
+    font-size: 120px;
+    height: 0;
+    display: inline-block;
+    vertical-align: -70;
+    margin-left: 10px;
+}
+
+.user h3{
+    font-size: 26px;
+    color: #cbb4f5;
+}
+
+.controls{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls span{
+    width: 15px;
+    height: 15px;
+    background: #321764;
+    border-radius: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.controls span:hover{
+
+    background: #f70707;
+   
+}
+
+.active{
+    width: 45px !important;
+}
+
+.container i1{
+    color: silver;
+}
+
+.container i1:hover{
+    
+    background: transparent;
+    color: red;    
+}
+

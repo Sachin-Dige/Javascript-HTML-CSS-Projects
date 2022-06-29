@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO ~ LiST</title>
+</head>
+<body bgcolor="lightblue">
+    <div>
+        <h1 style="color: green; font-family: sans-serif; font-weight: 900;">T0D0~L!ST</h1>
+        <input type="text" class="input" id="inp" placeholder=" Write here...." />
+
+        <button onclick="addmore()">➕</button>
+
+        <button id="btn" onclick="completedItem()">Completed</button>
+        <br><br>
+
+        <ul id="todolist" style="list-style-type: none; margin: 0;padding: 0;"></ul>
+
+    </div>
+
+    <script>
+
+        var list = [];
+        var inp = document.getElementById("inp");
+        var todolist = document.getElementById("todolist");
+        var isActive=false;
+        var display="showlist";
+
+// ADD TASK--------------------------------------
+
+        function addmore() {
+            if (inp.value == "") {
+                alert("Please write something....");
+            } else {
+                list.push(inp.value);
+                inp.value = "";
+                showList();
+            }
+        }
+        function showList() {
+        if(display==="showList"){
+            isActive=false;
+            iscomplete=false;
+            let dataView = "";
+            list.forEach(function (n, id) 
+            { if (list.status === false){
+                dataView += "<li>" + `<input type="checkbox" value="checked" class="close" unchecked="true" onclick='completedItem("${list.id}")'></input><span>${list.inp}</span>` + n + " <a onclick='editItem(" + id + ")'>🖊</a>" + " <a onclick='deleteItem(" + id + ")'>❌</a>" + " </li>";
+            }else{
+                dataView += "<li>" + `<input type="checkbox" value="checked" class="close" checked="true" onclick='completedItem("${list.id}")'></input><span style="text-decoration:line-through">${list.inp}</span>` + n + " <a onclick='editItem(" + id + ")'>🖊</a>" + " <a onclick='deleteItem(" + id + ")'>❌</a>" + " </li>";
+            }          
+            });
+            todolist.innerHTML = dataView;   
+        }else if(display === "activeItem"){
+          let ActiveItem = list.filter((item) => item.status == false);
+        console.log("ActiveItem", ActiveItem);
+        isActive=true;
+        iscomplete=false;
+        if(ActiveItem){
+          let active = "";
+            ActiveItem.map((item) => {
+              active += `<li>
+                <input type="checkbox" value="checked" unchecked="true" onclick="completedItem('${item._id}')"></input>
+                <span style:"text-align:center">${item.Name}</span><button style="margin-left:100px" onclick='editactiveItem("${item._id}")'>edit</button> <input type="button" value="x" onclick="activedel(${item._id})">
+                  </li>`;
+                });
+                console.log(active);
+                document.getElementById("todolisting").innerHTML = active;
+              }
+        }
+        }
+// DELETE TASK-----------------------------------
+
+        function deleteItem(id) {
+            list.splice(id, 1)
+            showList();
+        }
+
+// EDIT TASK-------------------------------------    
+
+        function editItem(id) {
+            var newValue = prompt("Edit now")
+            list.splice(id, 1, newValue)
+            showList();
+        }
+
+// COMPLETED TASK--------------------------------
+
+        function completedItem(id) {
+            
+            if(list.id===id){
+                list.status = !list.status;
+                list;
+            }
+            showList();
+        }
+    </script>
+</body>
+
+</html>

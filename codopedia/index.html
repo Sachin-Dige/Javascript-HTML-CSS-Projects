@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>codopedia</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                CODO<span class="animated infinite heartbeat">PEDI@</span>
+            </div>
+            <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="icon">
+                
+                <a href="login.html">Login</a>
+
+            </div>
+        </nav>
+
+        <section class="htxt">
+            
+        <i class="fa fa-code" aria-hidden="true" id="code"></i>
+
+        <i class="fa fa-" aria-hidden="true" id="code"></i>
+
+        <h1 class="animated infinite heartbeat">Here you will find <u>free</u> resource for Software engineering</h1>
+   
+        <input type="text" name="" placeholder="Search here....">
+   
+        <button><i class="fa fa-search"></i></button>
+
+        </section>
+    </header>
+
+    <section class="filter-gallery">
+        <div class="portfolio-menu">
+            <ul>
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".book">Book-PDF</li>
+                <li data-filter=".assign">Assignment</li>
+                <li data-filter=".syllabus">Syllabus</li>
+            </ul> 
+        </div>
+        <div class="portfolio-item">
+            <div class="item book">
+                <img src="img/j.png" width="100" height="100">
+            </div>
+            <div class="item assign">
+                <img src="img/ada.png" width="100" height="100">
+            </div><div class="item syllabus">
+                <img src="img/adas.png" width="100" height="100">
+            </div><div class="item book">
+                <img src="img/js.png" width="100" height="100">
+            </div><div class="item assign">
+                <img src="img/dsa.png" width="100" height="100">
+            </div><div class="item syllabus">
+                <img src="img/dsas.png" width="100" height="100">
+            </div><div class="item book">
+                <img src="img/p.png" width="100" height="100">
+            </div><div class="item assign">
+                <img src="img/eee.png" width="100" height="100">
+            </div>
+            <div class="item syllabus">
+                <img src="img/eees.png" width="100" height="100">
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="social-media-text">
+            <h1><b><u>Follow Us</u></b></h1>
+        </div>
+
+        <div class="social-media">
+            <i1 class="fa fa-whatsapp"></i1>
+            <i2 class="fa fa-instagram"></i2>
+            <i3 class="fa fa-telegram"></i3>
+            <i4 class="fa fa-twitter"></i4>
+            <i5 class="fa fa-facebook"></i5>
+        </div>
+    </section>
+
+     
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script type="text/javascript">
+    $('.portfolio-item').isotope({
+        // options
+        itemSelector: '.item',
+        layoutMode: 'fitRows'
+    });
+        $('.portfolio-menu ul li').click(function(){
+        $('.portfolio-menu ul li').removeClass('active');  $(this).addClass('active');
+
+            var selector = $(this).attr('data-filter');
+        $('.portfolio-item').isotope({
+                filter:selector
+            });
+            return false;
+        });
+        
+    </script>
+
+
+</body>
+</html> 
